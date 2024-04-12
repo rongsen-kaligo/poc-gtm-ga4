@@ -1,11 +1,10 @@
 import type { NextRequest } from 'next/server'
-import { getRequestContext } from '@cloudflare/next-on-pages'
+
+import packageJson from '../../../../package.json' assert { type: 'json' };
 
 export const runtime = 'edge'
 
 export async function GET(request: NextRequest) {
-  let responseText = 'Hello World'
-
   // In the edge runtime you can use Bindings that are available in your application
   // (for more details see:
   //    - https://developers.cloudflare.com/pages/framework-guides/deploy-a-nextjs-site/#use-bindings-in-your-nextjs-application
@@ -18,5 +17,11 @@ export async function GET(request: NextRequest) {
   // const suffix = await myKv.get('suffix')
   // responseText += suffix
 
-  return new Response(responseText)
+  return Response.json({
+    status: 'ok',
+    version: packageJson.version,
+    last_checked_at: new Date(),
+  }, {
+    status: 200,
+  });
 }

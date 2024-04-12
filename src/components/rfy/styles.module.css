@@ -1,0 +1,17 @@
+.rfy {
+  margin: 64px 0;
+}
+
+.carousel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(416px, auto));
+  grid-auto-flow: column;
+  
+  margin: 0 -16px ;
+  overflow: auto;
+  scroll-snap-type: x mandatory;
+}
+
+.carousel > img {
+  scroll-snap-align: start;
+}

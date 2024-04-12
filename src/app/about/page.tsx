@@ -1,6 +1,6 @@
 import type { Metadata, ResolvingMetadata } from "next/types";
 
-import { Nav } from "../components/nav/nav";
+import { Nav } from "../../components/nav/nav";
 
 export async function generateMetadata(
   _: object,
@@ -9,19 +9,22 @@ export async function generateMetadata(
   const parentMetadata = await parent;
 
   return {
-    title: parentMetadata.title,
-    description: `Currently at root | ${parentMetadata.description}`,
+    title: {
+      ...parentMetadata.title,
+      default: "About",
+      absolute: '',
+    },
+    description: `Currently at about page | ${parentMetadata.description}`,
   };
 }
 
-
-function Home() {
+function About() {
   return (
     <main>
-      <h2>Home</h2>
+      <h2>About</h2>
 
       <aside>
-        <Nav current="home" />
+        <Nav current="about" />
       </aside>
 
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas id congue tellus, maximus elementum ligula. Nam nibh mi, hendrerit non libero nec, mollis pellentesque tortor. Duis congue, tortor sit amet hendrerit dapibus, augue ipsum aliquet ante, eget volutpat nisi nisi eu nibh. Nam lobortis quam id nunc elementum efficitur. Vestibulum eu nibh diam. Ut vestibulum faucibus mauris vel aliquam. Quisque sit amet magna facilisis, vestibulum turpis in, molestie felis. Sed congue mi sed neque tincidunt sodales.
@@ -34,8 +37,7 @@ Fusce in fermentum sem. Nullam a arcu non tellus aliquet finibus ac vel sem. Viv
 
 Suspendisse lectus erat, consectetur vitae massa interdum, porttitor tempor mi. Aliquam erat volutpat. Maecenas at velit et lorem volutpat ultrices. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Fusce tempus arcu in rhoncus vehicula. Aenean rhoncus, nibh nec dictum suscipit, ex lacus commodo metus, ac bibendum sapien lacus vitae urna. Quisque tempus varius diam, vitae scelerisque tortor. Nam imperdiet lorem purus, id dignissim ex tempor vel. Pellentesque est ante, interdum sit amet dignissim eu, gravida ac arcu. Phasellus lacinia augue pharetra consectetur imperdiet. Fusce ex nisl, lacinia eu neque accumsan, placerat imperdiet ante.</p>
     </main>
-
   );
 }
 
-export default Home;
+export default About;
