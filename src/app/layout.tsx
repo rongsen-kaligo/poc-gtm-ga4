@@ -2,13 +2,12 @@ import { GoogleTagManager } from '@next/third-parties/google';
 import { Inter } from 'next/font/google';
 import type { Metadata } from 'next/types';
 import type { PropsWithChildren } from 'react';
-
-import { User$ } from '../components/User$/User$';
 import {
   GTM_ID,
   defaultPageDescription,
   defaultPageTitle,
 } from '../globals/constants';
+import { UserProvider$ } from '../providers/UserProvider$/UserProvider$';
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -25,15 +24,17 @@ export const metadata: Metadata = {
 function RootLayout({ children }: Readonly<PropsWithChildren>) {
   return (
     <html lang="en">
-      <GoogleTagManager
-        gtmId={GTM_ID}
-        // biome-ignore lint/style/useNamingConvention: GTM property naming convention
-        dataLayer={[JSON.stringify({ test_init: '123' })]}
-      />
+      <body className={inter.className}>
+        <UserProvider$>
+          <GoogleTagManager
+            gtmId={GTM_ID}
+            // biome-ignore lint/style/useNamingConvention: GTM property naming convention
+            dataLayer={[JSON.stringify({ test_init: '123' })]}
+          />
 
-      <User$ />
-
-      <body className={inter.className}>{children}</body>
+          {children}
+        </UserProvider$>
+      </body>
     </html>
   );
 }

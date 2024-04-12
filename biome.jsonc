@@ -86,8 +86,7 @@
         "useFilenamingConvention": {
           "level": "error",
           "options": {
-            "strictCase": true,
-            "requireAscii": true,
+            "strictCase": false,
             "filenameCases": ["export", "kebab-case"]
           }
         }
