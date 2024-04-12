@@ -1,12 +1,13 @@
 'use client';
 
-import { sendGTMEvent } from "@next/third-parties/google";
-import { useMount } from "react-use";
+import { sendGTMEvent } from '@next/third-parties/google';
+import { useMount } from 'react-use';
 
 export function User$() {
   useMount(() => {
     window.setTimeout(() => {
       sendGTMEvent({
+        // biome-ignore lint/style/useNamingConvention: GTM property naming convention
         tenant_id: '123456',
       });
     }, 5e3);

@@ -1,10 +1,11 @@
-import type { NextRequest } from 'next/server'
+import type { NextRequest } from 'next/server';
 
 import packageJson from '../../../../package.json' assert { type: 'json' };
 
-export const runtime = 'edge'
+export const runtime = 'edge';
 
-export async function GET(request: NextRequest) {
+// biome-ignore lint/style/useNamingConvention: This is a Next.js API route
+export async function GET(_request: NextRequest) {
   // In the edge runtime you can use Bindings that are available in your application
   // (for more details see:
   //    - https://developers.cloudflare.com/pages/framework-guides/deploy-a-nextjs-site/#use-bindings-in-your-nextjs-application
@@ -17,11 +18,14 @@ export async function GET(request: NextRequest) {
   // const suffix = await myKv.get('suffix')
   // responseText += suffix
 
-  return Response.json({
-    status: 'ok',
-    version: packageJson.version,
-    last_checked_at: new Date(),
-  }, {
-    status: 200,
-  });
+  return Response.json(
+    {
+      lastCheckedAt: new Date(),
+      status: 'ok',
+      version: packageJson.version,
+    },
+    {
+      status: 200,
+    }
+  );
 }

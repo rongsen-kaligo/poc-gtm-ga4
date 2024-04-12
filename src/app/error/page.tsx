@@ -1,5 +1,5 @@
-import Link from "next/link";
-import type { Metadata, ResolvingMetadata } from "next/types";
+import Link from 'next/link';
+import type { Metadata, ResolvingMetadata } from 'next/types';
 
 export async function generateMetadata(
   _: object,
@@ -10,14 +10,14 @@ export async function generateMetadata(
   return {
     title: {
       ...parentMetadata.title,
-      default: "Error",
+      default: 'Error',
       absolute: '',
     },
     description: `Currently at error page | ${parentMetadata.description}`,
   };
 }
 
-function Error() {
+function ErrorPage() {
   return (
     <main>
       <h2>Error</h2>
@@ -29,4 +29,5 @@ function Error() {
   );
 }
 
-export default Error;
+// biome-ignore lint/style/noDefaultExport: This is a Next.js page
+export default ErrorPage;

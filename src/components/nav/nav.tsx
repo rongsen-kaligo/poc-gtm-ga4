@@ -1,10 +1,10 @@
-import Link from "next/link";
+import Link from 'next/link';
 
-import { supportedRoutes } from "../../globals/constants";
+import { supportedRoutes } from '../../globals/constants';
 import styles from './styles.module.css' assert { type: 'css' };
 
 interface NavProps {
-  current: typeof supportedRoutes[number]['key'];
+  current: (typeof supportedRoutes)[number]['key'];
 }
 
 export function Nav(props: NavProps) {
@@ -13,27 +13,18 @@ export function Nav(props: NavProps) {
   return (
     <nav>
       <ul>
-        {supportedRoutes.map(({
-          key,
-          page,
-          route,
-        }) => {
+        {supportedRoutes.map(({ key, page, route }) => {
           const isCurrent = key === current;
 
           return (
             <li key={route}>
-              {
-                isCurrent ? (
-                  <p className={styles.current}>{page} (current)</p>
-                ) : (
-                  <Link href={route}>
-                    {page}
-                  </Link>
-                )
-              }
+              {isCurrent ? (
+                <p className={styles.current}>{page} (current)</p>
+              ) : (
+                <Link href={route}>{page}</Link>
+              )}
             </li>
           );
-        
         })}
       </ul>
     </nav>
