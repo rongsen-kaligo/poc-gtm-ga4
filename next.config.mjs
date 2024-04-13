@@ -10,5 +10,4 @@ if (process.env.NODE_ENV === 'development') {
 /** @type {import('next').NextConfig} */
 const nextConfig = {};
 
-// biome-ignore lint/style/noDefaultExport: This is a Next.js convention
 export default nextConfig;

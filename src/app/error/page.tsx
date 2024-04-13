@@ -29,5 +29,4 @@ function ErrorPage() {
   );
 }
 
-// biome-ignore lint/style/noDefaultExport: This is a Next.js page
 export default ErrorPage;

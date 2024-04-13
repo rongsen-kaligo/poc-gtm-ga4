@@ -54,5 +54,4 @@ const styles = {
   },
 } as const;
 
-// biome-ignore lint/style/noDefaultExport: This is a Next.js page
 export default NotFound;
