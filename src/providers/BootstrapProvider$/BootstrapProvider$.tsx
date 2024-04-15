@@ -6,13 +6,13 @@ import { useMount } from 'react-use';
 
 import type { Bootstrap } from '../../app/api/bootstrap/types';
 
-interface TenantProviderProps extends PropsWithChildren {
+interface BootstrapProviderProps extends PropsWithChildren {
   value: Bootstrap;
 }
 
 const context = createContext<Bootstrap>({ tenantId: '' });
 
-export function TenantProvider$(props: TenantProviderProps) {
+export function TenantProvider$(props: BootstrapProviderProps) {
   useMount(() => {
     sendGTMEvent({
       event: 'tenant_ready',

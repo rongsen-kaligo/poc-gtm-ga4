@@ -1,7 +1,7 @@
 import { redirect } from "next/navigation";
 import type { PropsWithChildren } from "react";
 
-import { TenantProvider$ } from "../../providers/TenantProvider$/TenantProvider$";
+import { TenantProvider$ } from "../../providers/BootstrapProvider$/BootstrapProvider$";
 import { getBootstrap } from "../../services/get-bootstrap/get-bootstrap";
 
 interface BootstrapInstallerProps extends PropsWithChildren {}
