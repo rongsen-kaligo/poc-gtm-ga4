@@ -14,24 +14,24 @@
     "build-cf-types": "wrangler types --env-interface CloudflareEnv env.d.ts"
   },
   "dependencies": {
-    "@next/third-parties": "^14.2.0",
-    "next": "14.2.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "@next/third-parties": "^14.2.3",
+    "next": "14.2.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-use": "^17.5.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.6.4",
-    "@cloudflare/next-on-pages": "^1.11.0",
-    "@cloudflare/workers-types": "^4.20240405.0",
-    "@types/node": "^20.12.7",
-    "@types/react": "^18.2.77",
-    "@types/react-dom": "^18.2.25",
-    "eslint": "^8.57.0",
-    "eslint-config-next": "14.2.0",
-    "eslint-plugin-next-on-pages": "^1.11.0",
+    "@biomejs/biome": "^1.7.3",
+    "@cloudflare/next-on-pages": "^1.11.3",
+    "@cloudflare/workers-types": "^4.20240512.0",
+    "@types/node": "^20.12.12",
+    "@types/react": "^18.3.2",
+    "@types/react-dom": "^18.3.0",
+    "eslint": "8.57.0",
+    "eslint-config-next": "14.2.3",
+    "eslint-plugin-next-on-pages": "^1.11.3",
     "typescript": "^5.4.5",
-    "vercel": "^34.0.0",
-    "wrangler": "^3.50.0"
+    "vercel": "^34.1.14",
+    "wrangler": "^3.56.0"
   }
 }
