@@ -12,11 +12,24 @@ export function Rfy() {
       <div className={styles.carousel}>
         {Array.from({ length: 10 }, (_, i) => {
           const key = String(i);
+          const dataGtm = {
+            item_id: key,
+            item_name: `Random item ${i}`,
+            index: i,
+            item_category: `Random category ${i}`,
+            price: 9.99,
+            quantity: i,
+            product_type: `Random type ${i}`,
+            score: `0.${i}`,
+            item_score: `0.${i}`,
+            ranking: i,
+          };
 
           return (
             <Link
               className="rfy-item"
               data-rfy={key}
+              data-gtm={JSON.stringify(dataGtm)}
               href={`/other/${key}`}
               key={key}>
               <img
